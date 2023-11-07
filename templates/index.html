@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title%}Home page{% endblock%}
+{% block body %}
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0px;
+        background-color: #f4f4f4;;
+      }
+
+      h1 {
+        color: #007bff;
+        text-align: center;
+        border: 1px solid #676666;
+        width: 5cm;
+        height: 1cm;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .note-container {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+      }
+
+      strong {
+        font-weight: bold;
+      }
+
+      a {
+        text-decoration:double;
+        color: #007bff;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <title>Заметки</title>
+  </head>
+  <body>
+    {% for note in notes %}
+    <div class="note-container">
+      <strong>{{ note['title'] }}</strong> - {{ note['content'] }}
+    </div>
+    {% endfor %}
+    <center>
+      <a href="{{ url_for('create') }}">➕Создать новую заметку</a>
+    </center>
+  </body>
+</html>
+{%endblock%}
